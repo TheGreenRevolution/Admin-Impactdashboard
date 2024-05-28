@@ -19,7 +19,7 @@ class ImpactFlow extends Page
     protected int | string | array $columnSpan = 12;
 
 
-    protected function getHeaderWidgets(): array // Use getWidgets if they're not header widgets
+    protected function getHeaderWidgets(): array
     {
         return [
             HarvestLocations::class,
