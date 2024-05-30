@@ -21,6 +21,7 @@ class HarvestResource extends Resource
     protected static ?string $model = Harvest::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-archive-box';
+    protected static ?string $navigationGroup = 'Our Data';
 
     public static function form(Form $form): Form
     {

@@ -19,12 +19,13 @@ class CropResource extends Resource
     protected static ?string $model = Crop::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-sun';
+    protected static ?string $navigationGroup = 'Global data';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('crop')
+                TextInput::make('name')
                     ->label('Crop Name')
                     ->required(),
                 TextInput::make('co2_sequestration_rate')
@@ -38,7 +39,7 @@ class CropResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('crop')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('co2_sequestration_rate')
