@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreignId('company_id')->constrained()->onDelete('cascade');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -42,7 +43,17 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        // Check if the 'users' table exists before trying to drop the foreign key
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
+                // Check if the 'company_id' column exists before trying to drop the foreign key
+                if (Schema::hasColumn('users', 'company_id')) {
+                    $table->dropForeign(['company_id']);
+                }
+            });
+
+            Schema::dropIfExists('users');
+        }
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }

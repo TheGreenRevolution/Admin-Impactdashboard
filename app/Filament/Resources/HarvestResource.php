@@ -34,7 +34,7 @@ class HarvestResource extends Resource
                     ->required(),
                 Select::make('crop')
                     ->label('Crop')
-                    ->relationship('crop', 'crop_name')
+                    ->relationship('crop', 'name')
                     ->required(),
                 TextInput::make('weight')
                     ->label('Weight')
@@ -55,13 +55,14 @@ class HarvestResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->label('End Period'),
-                Tables\Columns\TextColumn::make('crop')
+                Tables\Columns\TextColumn::make('crop.name')
                     ->searchable()
                     ->sortable()
                     ->label('Crop'),
                 Tables\Columns\TextColumn::make('weight')
                     ->sortable()
                     ->label('Weight'),
+                Tables\Columns\TextColumn::make('company.name')->label('Company'),
             ])
             ->filters([
                 //
