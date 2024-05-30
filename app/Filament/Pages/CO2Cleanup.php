@@ -11,6 +11,7 @@ class CO2Cleanup extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-globe-europe-africa';
     protected static string $view = 'filament.pages.co2-cleanup';
+    protected static ?string $navigationGroup = 'Visualizations';
     protected int | string | array $columnSpan = [
         'default' => 'full',
     ];

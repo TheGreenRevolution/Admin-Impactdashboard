@@ -16,6 +16,7 @@ class ImpactFlow extends Page
     protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
     protected static string $view = 'filament.pages.impact-flow';
+    protected static ?string $navigationGroup = 'Visualizations';
     protected int | string | array $columnSpan = 12;
 
 
