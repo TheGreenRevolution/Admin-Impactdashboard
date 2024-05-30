@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Crop extends Model
 {
     use HasFactory;
-    protected $fillable = ['crop_name', 'co2_sequestration_rate'];
+    protected $fillable = ['name', 'co2_sequestration_rate'];
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('crops', function (Blueprint $table) {
             $table->id();
-            $table->string('crop_name')->unique();
+            $table->string('name')->unique();
             $table->decimal('co2_sequestration_rate', 10, 2); // Adjust precision as needed
             $table->timestamps();
         });
