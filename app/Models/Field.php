@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Field extends Model
 {
@@ -36,6 +37,12 @@ class Field extends Model
     protected $appends = [
         'location',
     ];
+
+    //A FIELD BELONGS TO COMPANY
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
+    }
 
     /**
      * ADD THE FOLLOWING METHODS TO YOUR Field MODEL
