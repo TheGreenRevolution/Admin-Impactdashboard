@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('harvests', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->date('start_period');
-            $table->date('end_period');
-            $table->decimal('weight', 10, 2);
-            $table->foreignId('crop_id')->constrained('crops')->onDelete('cascade');
-            $table->foreignId('company_id')->constrained()->onDelete('cascade');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('harvests');
+        Schema::dropIfExists('users');
+        Schema::dropIfExists('companies');
     }
 };
