@@ -17,6 +17,7 @@ class Field extends Model
      */
     protected $fillable = [
         'size',
+        'company_id',
         'location',
         'country',
         'city',
