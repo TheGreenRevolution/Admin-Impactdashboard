@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CropSeeder::class,
             TestDataSeeder::class,
-
+            ProductionLocationSeeder::class
         ]);
     }
 }
