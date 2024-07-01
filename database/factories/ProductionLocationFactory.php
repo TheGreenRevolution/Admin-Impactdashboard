@@ -19,6 +19,8 @@ class ProductionLocationFactory extends Factory
         return [
             'description' => $this->faker->text(300),
             'full_address' => $this->faker->address,
+            'lat' => $this->faker->latitude,
+            'lng' => $this->faker->longitude,
         ];
     }
 }
