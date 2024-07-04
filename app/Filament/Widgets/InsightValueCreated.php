@@ -9,7 +9,7 @@ class InsightValueCreated extends ChartWidget
 {
     protected static ?string $heading = 'Value Created';
     protected int | string | array $columnSpan = 4;
-    protected static ?int $sort = 3;
+    protected static ?int $sort = 1;
 
     protected function getData(): array
     {
