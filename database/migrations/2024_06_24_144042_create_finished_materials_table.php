@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('finished_materials', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('name');
             $table->foreignId('endmaterial_id')->constrained('end_material_types'); // Foreign key to endmaterials table
             $table->decimal('%_raw_material_used', 5, 2); // Percentage of raw material used in the end product
             $table->decimal('kg_per_m3', 8, 2); // KG per cubic meter

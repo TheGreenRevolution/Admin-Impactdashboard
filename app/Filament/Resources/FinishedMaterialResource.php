@@ -29,7 +29,7 @@ class FinishedMaterialResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('Name')
+                TextInput::make('name')
                     ->label('Material name')
                     ->required(),
                 Select::make('endmaterial_id')
@@ -61,6 +61,8 @@ class FinishedMaterialResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Name'),
                 Tables\Columns\TextColumn::make('endmaterial.name')
                     ->label('Material Type'),
                 Tables\Columns\TextColumn::make('%_raw_material_used')
