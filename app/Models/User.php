@@ -8,9 +8,16 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class User extends Authenticatable
+//BREEZY TwoFactorAuthenticatable
+use Jeffgreco13\FilamentBreezy\Traits\TwoFactorAuthenticatable;
+// use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
+use Illuminate\Support\Facades\Storage;
+use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable implements HasAvatar
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, TwoFactorAuthenticatable;
     /**
      * The attributes that are mass assignable.
      *
@@ -19,10 +26,15 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'avatar_url',
         'password',
     ];
 
+    public function getFilamentAvatarUrl(): ?string
+    {
 
+        return $this->avatar_url ? Storage::url($this->avatar_url) : null;
+    }
 
     /*
         Multi tenancy

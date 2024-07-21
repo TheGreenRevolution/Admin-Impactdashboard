@@ -17,7 +17,8 @@ class TestDataSeeder extends Seeder
             UserSeeder::class,
             HarvestSeeder::class,
             MaterialTypesSeeder::class,
-            FinishedMaterialsSeeder::class
+            FinishedMaterialsSeeder::class,
+            ProductionLocationSeeder::class,
         ]);
     }
 }
